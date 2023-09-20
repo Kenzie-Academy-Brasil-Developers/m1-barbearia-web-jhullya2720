@@ -51,23 +51,19 @@ function verificaStatusBarbearia() {
 verificaStatusBarbearia()
 
 function retornaTodosCortes() {
-    for(let i = 0; i < barbearia.cortes.length; i++){
         return barbearia.cortes
-    }
 }
 retornaTodosCortes()
 
 function retornaTodasBarbas() {
-    for(let i = 0; i < barbearia.barbas.length; i++){
         return barbearia.barbas
-    }
 }
 retornaTodasBarbas()
 
 function criaPedido(nomeCliente, corteId, barbaId) {
     nomeCliente = "";
-    corteId = barbearia.cortes;
-    barbaId = barbearia.barbas;
+    const corte = buscaCortePorId(corteId)
+    const barba = buscaBarbaPorId(barbaId)
     const pedido = {
         nome: nomeCliente,
         pedidoCorte: barbearia.cortes,
@@ -84,7 +80,6 @@ function atualizarServico(lista, id, valor, tipo) {
         for(let i = 0; i < lista.length; i ++){
         if(lista[i].id == id){
             lista[i].valor = valor
-            lista[i].id = id
             lista[i].tipo = tipo
         }    
     }
